@@ -4,13 +4,17 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:["https://deploy-mern-1"],
+  methods:["POST","GET","PUT","DELETE"],
+  credentials:true
+}));
 app.use(cookieParser());
 
 // Set the port you want to use
 const PORT = process.env.PORT || 3001;
-
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager', {
+// mongodb+srv://nileshp:Nileshhh@cluster0.cwmozw9.mongodb.net/Cluster0?retryWrites=true&w=majority
+mongoose.connect('mongodb+srv://nileshp:Nileshhh@cluster0.cwmozw9.mongodb.net/Cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
